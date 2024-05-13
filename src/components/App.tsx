@@ -1,3 +1,3 @@
 export const App = () => {
-  return <div>Events-Flow</div>;
+  return <div className="font-nunito-regular">Events-Flow</div>;
 };
