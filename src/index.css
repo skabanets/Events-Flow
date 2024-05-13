@@ -26,3 +26,12 @@
   font-stretch: normal;
   font-display: swap;
 }
+
+body {
+  @apply bg-white text-gray-800 font-nunito-regular h-screen;
+}
+
+.active {
+  background-color: #3b82f6 !important;
+  color: white !important;
+}
