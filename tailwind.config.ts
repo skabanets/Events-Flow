@@ -7,9 +7,40 @@ export default {
       'nunito-medium': ['Nunito-Medium', 'sans-serif'],
       'nunito-semibold': ['Nunito-SemiBold', 'sans-serif'],
     },
+    screens: {
+      md: '768px',
+      lg: '1440px',
+    },
     extend: {},
   },
-  plugins: [require('daisyui')],
+  corePlugins: {
+    container: false,
+  },
+  plugins: [
+    require('daisyui'),
+    ({ addComponents }) => {
+      addComponents({
+        '.container': {
+          minWidth: '320px',
+          maxWidth: '375px',
+          marginLeft: 'auto',
+          marginRight: 'auto',
+          paddingLeft: '20px',
+          paddingRight: '20px',
+          '@screen md': {
+            paddingLeft: '32px',
+            paddingRight: '32px',
+            maxWidth: '768px',
+          },
+          '@screen lg': {
+            paddingLeft: '100px',
+            paddingRight: '100px',
+            maxWidth: '1440px',
+          },
+        },
+      });
+    },
+  ],
   daisyui: {
     themes: ['light'],
   },

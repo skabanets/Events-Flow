@@ -6,7 +6,7 @@ export const Header = () => {
 
   return (
     <header className="shadow-md bg-gray-100">
-      <div className="navbar">
+      <div className="navbar container">
         <div className="flex-1">
           <Logo />
         </div>
