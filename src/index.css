@@ -31,7 +31,18 @@ body {
   @apply bg-white text-gray-800 font-nunito-regular h-screen;
 }
 
+a {
+  @apply cursor-pointer;
+}
+
+a:hover .logo {
+  @apply fill-blue-800;
+}
+
 .active {
-  background-color: #3b82f6 !important;
-  color: white !important;
+  @apply font-nunito-semibold text-blue-600;
+}
+
+.flex-center {
+  @apply flex justify-center items-center;
 }
