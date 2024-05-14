@@ -12,3 +12,5 @@ export interface Participant {
   eventSource: Source;
   eventId: string;
 }
+
+export interface ParticipantWithoutId extends Omit<Event, '_id'> {}

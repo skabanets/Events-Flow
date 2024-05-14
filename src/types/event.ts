@@ -7,3 +7,5 @@ export interface Event {
   organaizer: string;
   participants: string[];
 }
+
+export interface EventWithoutId extends Omit<Event, '_id'> {}
