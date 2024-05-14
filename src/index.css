@@ -46,3 +46,7 @@ a:hover .logo {
 .flex-center {
   @apply flex justify-center items-center;
 }
+
+.button {
+  @apply bg-blue-500 text-white hover:bg-blue-600;
+}
