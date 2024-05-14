@@ -4,7 +4,7 @@ enum Source {
   FoundMyself = 'Found myself',
 }
 
-export interface Participant {
+export interface IParticipant {
   _id: string;
   email: string;
   dateOfBirth: Date;
@@ -13,4 +13,4 @@ export interface Participant {
   eventId: string;
 }
 
-export interface ParticipantWithoutId extends Omit<Event, '_id'> {}
+export interface IParticipantWithoutId extends Omit<Event, '_id'> {}

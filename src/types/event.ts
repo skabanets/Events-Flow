@@ -1,4 +1,4 @@
-export interface Event {
+export interface IEvent {
   _id: string;
   login: string;
   title: string;
@@ -8,4 +8,4 @@ export interface Event {
   participants: string[];
 }
 
-export interface EventWithoutId extends Omit<Event, '_id'> {}
+export interface IEventWithoutId extends Omit<Event, '_id'> {}
