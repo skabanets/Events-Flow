@@ -28,7 +28,7 @@
 }
 
 body {
-  @apply bg-white text-gray-800 font-nunito-regular h-screen;
+  @apply bg-gray-100 text-gray-800 font-nunito-regular min-h-screen;
 }
 
 a {
@@ -39,8 +39,12 @@ a:hover .logo {
   @apply fill-blue-800;
 }
 
+p {
+  @apply text-gray-700;
+}
+
 .active {
-  @apply font-nunito-semibold text-blue-600;
+  @apply font-bold text-blue-600;
 }
 
 .flex-center {
@@ -49,4 +53,8 @@ a:hover .logo {
 
 .button {
   @apply bg-blue-500 text-white hover:bg-blue-600;
+}
+
+.title {
+  @apply font-nunito-semibold text-gray-900;
 }

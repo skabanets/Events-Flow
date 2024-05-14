@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <div>
-      <div className="hero min-h-screen ">
+      <div className="hero h-[90vh] ">
         <div className="hero-content text-center">
           <div className="max-w-md">
             <h1 className="font-nunito-semibold text-4xl text-gray-900">Welcome to Events-Flow!</h1>

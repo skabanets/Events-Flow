@@ -5,7 +5,7 @@ export const Header = () => {
   const navLink = 'font-nunito-medium text-lg text-gray-600 hover:text-gray-800';
 
   return (
-    <header className="shadow-md bg-gray-100">
+    <header className="shadow-md bg-white">
       <div className="navbar container">
         <div className="flex-1">
           <Logo />
