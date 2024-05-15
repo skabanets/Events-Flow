@@ -85,3 +85,7 @@ p {
 .navigate-link {
   @apply button rounded-[5px] px-[16px] py-[8px];
 }
+
+.nav-link {
+  @apply font-nunito-medium text-lg text-gray-600 hover:text-gray-800;
+}

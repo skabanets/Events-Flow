@@ -1,12 +1,13 @@
 import { Card } from '../../components';
+
 import { getFormattedDate } from '../../helpers';
 import { IParticipant } from '../../types';
 
-interface ParticipantCardProps {
+interface IParticipantCardProps {
   participant: IParticipant;
 }
 
-export const ParticipantCard: React.FC<ParticipantCardProps> = ({ participant }) => {
+export const ParticipantCard = ({ participant }: IParticipantCardProps) => {
   const { fullName, email, dateOfRegistration } = participant;
   return (
     <Card>

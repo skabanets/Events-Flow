@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
-import { getEvents } from '../../services/api';
+import { toast } from 'react-toastify';
 
 import { EventsList, Loader, PageTitle } from '../../components';
+
+import { getEvents } from '../../services/api';
 import { IEvent } from '../../types';
-import { toast } from 'react-toastify';
 
 const EventsBoard = () => {
   const [events, setEvents] = useState<IEvent[]>([]);

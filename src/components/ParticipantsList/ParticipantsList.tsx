@@ -1,11 +1,12 @@
-import { ParticipantCard } from '..';
+import { ParticipantCard } from '../../components';
+
 import { IParticipant } from '../../types';
 
-interface ParticipantsListProps {
+interface IParticipantsListProps {
   participants: IParticipant[];
 }
 
-export const ParticipantsList: React.FC<ParticipantsListProps> = ({ participants }) => {
+export const ParticipantsList = ({ participants }: IParticipantsListProps) => {
   return (
     <ul className="flex flex-wrap gap-[20px] my-[20px]">
       {participants.length !== 0 &&

@@ -1,8 +1,10 @@
 import { useParams } from 'react-router-dom';
-import { GoBackLink, Loader, PageTitle, RegistrationForm } from '../../components';
 import { useEffect, useState } from 'react';
-import { getEvent } from '../../services/api';
 import { toast } from 'react-toastify';
+
+import { GoBackLink, Loader, PageTitle, RegistrationForm } from '../../components';
+
+import { getEvent } from '../../services/api';
 
 const Registration = () => {
   const { eventId } = useParams<{ eventId: string }>();

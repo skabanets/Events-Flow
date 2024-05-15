@@ -1,17 +1,18 @@
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { toast } from 'react-toastify';
+
 import { IParticipantRegister } from '../../types';
 import { addParticipant } from '../../services/api';
-import { useEffect } from 'react';
-import { toast } from 'react-toastify';
-import { useNavigate } from 'react-router-dom';
-import { yupResolver } from '@hookform/resolvers/yup';
 import { participantRegisterSchema } from '../../schemas/participantRegisterSchema';
 
-interface RegistrationFormPprops {
+interface IRegistrationFormPprops {
   id: string;
 }
 
-export const RegistrationForm: React.FC<RegistrationFormPprops> = ({ id }) => {
+export const RegistrationForm = ({ id }: IRegistrationFormPprops) => {
   const {
     register,
     handleSubmit,
@@ -33,11 +34,10 @@ export const RegistrationForm: React.FC<RegistrationFormPprops> = ({ id }) => {
     setTimeout(() => {
       navigate(`/participants/${id}`);
       reset();
-    }, 2000);
+    }, 1000);
   };
 
   const onSubmit = (data: IParticipantRegister): void => {
-    console.log(data);
     addParticipant(data)
       .then(() => {
         toast.success('You have successfully registered for the event!');

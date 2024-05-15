@@ -1,9 +1,8 @@
 import { NavLink } from 'react-router-dom';
+
 import { Logo } from '../../components';
 
 export const Header = () => {
-  const navLink = 'font-nunito-medium text-lg text-gray-600 hover:text-gray-800';
-
   return (
     <header className="shadow-md bg-white">
       <div className="navbar container">
@@ -13,12 +12,12 @@ export const Header = () => {
         <div className="flex-none">
           <ul className="flex gap-[15px]">
             <li>
-              <NavLink to="/" className={navLink}>
+              <NavLink to="/" className="nav-link">
                 Home
               </NavLink>
             </li>
             <li>
-              <NavLink to="/events-board" className={navLink}>
+              <NavLink to="/events-board" className="nav-link">
                 Events
               </NavLink>
             </li>

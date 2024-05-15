@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom';
-import { IEvent } from '../../types';
+
 import { Card } from '../../components';
+
+import { IEvent } from '../../types';
 import { getFormattedDate } from '../../helpers';
 
-interface EventCardProps {
+interface IEventCardProps {
   eventInfo: IEvent;
 }
 
-export const EventCard: React.FC<EventCardProps> = ({ eventInfo }) => {
+export const EventCard = ({ eventInfo }: IEventCardProps) => {
   const { _id, title, description, eventDate, organaizer } = eventInfo;
 
   const cardLink = 'text-blue-500 hover:text-blue-600 hover:font-bold';

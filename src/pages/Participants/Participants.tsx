@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
-import { GoBackLink, Loader, PageTitle, ParticipantsList } from '../../components';
-import { getEvent, getPaparticipants } from '../../services/api';
 import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { IParticipant } from '../../types';
-
 import { BarChart } from '@mui/x-charts';
+
+import { GoBackLink, Loader, PageTitle, ParticipantsList } from '../../components';
+
 import { getCountParticipantsByDate, getLastWeekDates, getWeekdays } from '../../helpers';
+import { getEvent, getPaparticipants } from '../../services/api';
+import { IParticipant } from '../../types';
 
 const Participants = () => {
   const { eventId } = useParams<{ eventId: string }>();
