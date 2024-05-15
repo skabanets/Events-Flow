@@ -1,8 +1,4 @@
-enum Source {
-  SocialMedia = 'Social media',
-  Friends = 'Friends',
-  FoundMyself = 'Found myself',
-}
+export type Source = 'Social media' | 'Friends' | 'Found myself';
 
 export interface IParticipant {
   _id: string;

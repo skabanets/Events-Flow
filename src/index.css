@@ -74,3 +74,7 @@ p {
 .input-field {
   @apply w-full px-[12px] py-[6px] border border-solid border-black rounded-[5px] focus:outline-none focus:border-blue-600;
 }
+
+.field-error {
+  @apply absolute mt-[2px] text-[12px] text-red-600;
+}

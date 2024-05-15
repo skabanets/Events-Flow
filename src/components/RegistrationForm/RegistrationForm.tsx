@@ -4,13 +4,24 @@ import { addParticipant } from '../../services/api';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { participantRegisterSchema } from '../../schemas/participantRegisterSchema';
 
 interface RegistrationFormPprops {
   id: string;
 }
 
 export const RegistrationForm: React.FC<RegistrationFormPprops> = ({ id }) => {
-  const { register, handleSubmit, reset, setValue } = useForm<IParticipantRegister>({});
+  const {
+    register,
+    handleSubmit,
+    reset,
+    setValue,
+    formState: { errors },
+  } = useForm<IParticipantRegister>({
+    mode: 'onSubmit',
+    resolver: yupResolver(participantRegisterSchema),
+  });
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,34 +43,48 @@ export const RegistrationForm: React.FC<RegistrationFormPprops> = ({ id }) => {
         toast.success('You have successfully registered for the event!');
         navigateToParticipants();
       })
-      .catch(() => toast.error('An error occurred. Please try again later.'));
+      .catch(error => toast.error(error.response.data.message));
   };
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="card-style p-5 font-nunito-regular gap-5">
       <h1 className="title text-2xl">Event registration</h1>
-      <label className="label">
-        Full name:
-        <input
-          className="input-field"
-          type="text"
-          placeholder="John Wick"
-          {...register('fullName')}
-        />
-      </label>
-      <label className="label">
-        Email:
-        <input
-          className="input-field"
-          type="email"
-          placeholder="john.wick@example.com"
-          {...register('email')}
-        />
-      </label>
-      <label className="label">
-        Date of birth:
-        <input className="input-field" type="date" {...register('dateOfBirth')} />
-      </label>
+      <div className="relative">
+        <label className="label">
+          Full name:
+          <input
+            className="input-field"
+            type="text"
+            placeholder="John Wick"
+            {...register('fullName')}
+          />
+        </label>
+        <p className="field-error">{errors['fullName']?.message}</p>
+      </div>
+      <div>
+        <label className="label">
+          Email:
+          <input
+            className="input-field"
+            type="email"
+            placeholder="john.wick@example.com"
+            {...register('email')}
+          />
+        </label>
+        <p className="field-error">{errors['email']?.message}</p>
+      </div>
+      <div>
+        <label className="label">
+          Date of birth:
+          <input
+            className="input-field"
+            type="date"
+            defaultValue="yyyy-mm-dd"
+            {...register('dateOfBirth')}
+          />
+        </label>
+        <p className="field-error">{errors['dateOfBirth']?.message}</p>
+      </div>
       <div>
         <h2 className="mb-[10px]">Where did you here about this event?</h2>
         <div className="flex flex-col gap-[10px] md:flex-row md:gap-6">
@@ -76,6 +101,7 @@ export const RegistrationForm: React.FC<RegistrationFormPprops> = ({ id }) => {
             Found myself
           </label>
         </div>
+        <p className="field-error">{errors['eventSource']?.message}</p>
       </div>
       <button className="btn button w-fit px-10 mx-auto" type="submit">
         Register
