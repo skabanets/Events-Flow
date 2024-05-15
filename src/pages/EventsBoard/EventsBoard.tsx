@@ -35,14 +35,17 @@ const EventsBoard = () => {
           setPage(prevState => prevState + 1);
           setTotalEvens(res.totalCount);
         })
-        .catch(() => toast.error('Something went wrong. Reload page or try again late!'))
+        .catch(() => {
+          events;
+          toast.error('Something went wrong. Reload page or try again late!');
+        })
         .finally(() => {
           setFetching(false);
         });
     }
   }, [fetching, page]);
 
-  if (!events) return <Loader />;
+  if (!events.length) return <Loader />;
 
   if (page !== 1 && events.length === totalEvents) toast.warning('All events have been loaded!');
 
@@ -52,7 +55,7 @@ const EventsBoard = () => {
       {events.length !== 0 ? (
         <EventsCardsList events={events} />
       ) : (
-        <div className="h-[80vh] w-[100wh] flex-center">
+        <div className="h-[80vh] w-[100wh] flex-center bg-slate-600">
           <div className="card w-96 h-[200px] shadow-xl bg-red-300">
             <div className="card-body flex-center text-center">
               <h2 className="card-title">
