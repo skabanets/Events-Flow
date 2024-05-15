@@ -5,10 +5,15 @@ import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { IParticipant } from '../../types';
 
+import { BarChart } from '@mui/x-charts';
+import { getCountParticipantsByDate, getLastWeekDates, getWeekdays } from '../../helpers';
+
 const Participants = () => {
   const { eventId } = useParams<{ eventId: string }>();
   const [eventTitle, setEventTitle] = useState<string>('');
   const [participants, setParticipants] = useState<IParticipant[]>([]);
+  const [dateArr, setDateArr] = useState<string[]>([]);
+  const [participantsByDate, setParticipantsByDate] = useState<number[]>([]);
 
   useEffect(() => {
     if (eventId) {
@@ -22,15 +27,35 @@ const Participants = () => {
     }
   }, [eventId]);
 
-  console.log(participants);
+  useEffect(() => {
+    if (participants) {
+      const dates = getLastWeekDates();
+      setDateArr(dates);
+      const participantsCount = getCountParticipantsByDate(dates, participants);
+      setParticipantsByDate(participantsCount);
+    }
+  }, [participants]);
 
   if (!eventId || eventTitle === '') return <Loader />;
 
   return (
     <div className="page-wrapper">
       <PageTitle title={`"${eventTitle}" participants`} />
+
       {participants.length !== 0 ? (
-        <ParticipantsList participants={participants} />
+        <>
+          <div className="card mt-[10px] bg-blue-100 shadow-md">
+            <h2 className="title text-xl pt-[20px] pl-[20px]">Participants per week:</h2>
+            <BarChart
+              xAxis={[{ scaleType: 'band', data: getWeekdays(dateArr) }]}
+              series={[{ data: participantsByDate }]}
+              height={200}
+              colors={['#3b81f6']}
+              className="w-full"
+            />
+          </div>
+          <ParticipantsList participants={participants} />
+        </>
       ) : (
         <div className="h-[85vh] w-full flex-center">
           <div className="card w-96 h-[200px] shadow-xl bg-white flex-center">

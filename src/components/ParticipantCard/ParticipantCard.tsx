@@ -1,5 +1,5 @@
 import { Card } from '../../components';
-import { getFormattedDate } from '../../helpers/getFormattedDate';
+import { getFormattedDate } from '../../helpers';
 import { IParticipant } from '../../types';
 
 interface ParticipantCardProps {

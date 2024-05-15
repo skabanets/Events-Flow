@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
-import { getFormattedDate } from '../../helpers/getFormattedDate';
 import { IEvent } from '../../types';
 import { Card } from '../../components';
+import { getFormattedDate } from '../../helpers';
 
 interface EventCardProps {
   eventInfo: IEvent;

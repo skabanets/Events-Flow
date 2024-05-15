@@ -1,12 +1,6 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
-  const navigate = useNavigate();
-
-  const handleClickButton = () => {
-    navigate('events-board');
-  };
-
   return (
     <div>
       <div className="hero h-[90vh] ">
