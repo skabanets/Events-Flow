@@ -1,4 +1,4 @@
-import axios, { AxiosRequestConfig } from 'axios';
+import axios from 'axios';
 import { IEvent, IEventWithoutId, IEventsRes, IParticipant, IParticipantRegister } from '../types';
 
 export const api = axios.create({
