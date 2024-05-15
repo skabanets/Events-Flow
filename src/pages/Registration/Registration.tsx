@@ -1,11 +1,11 @@
 import { useParams } from 'react-router-dom';
-import { PageTitle, RegistrationForm } from '../../components';
+import { Loader, PageTitle, RegistrationForm } from '../../components';
 import { useEffect, useState } from 'react';
 import { getEvent } from '../../services/api';
 
 const Registration = () => {
   const { eventId } = useParams<{ eventId: string }>();
-  const [eventTitle, setEventTitle] = useState<string | null>(null);
+  const [eventTitle, setEventTitle] = useState<string>('');
 
   useEffect(() => {
     eventId &&
@@ -14,7 +14,7 @@ const Registration = () => {
         .catch();
   }, [eventId]);
 
-  if (!eventId) return;
+  if (!eventId || eventTitle === '') return <Loader />;
 
   return (
     <div className="page-wrapper">
