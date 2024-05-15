@@ -10,7 +10,6 @@ const EventsBoard = () => {
   const [page, setPage] = useState<number>(1);
   const [fetching, setFetching] = useState<boolean>(true);
   const [totalEvents, setTotalEvens] = useState<number>(0);
-  const [isLoading, setIsloading] = useState<boolean>(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +29,6 @@ const EventsBoard = () => {
 
   useEffect(() => {
     if (fetching) {
-      setIsloading(true);
       getEvents(page)
         .then(res => {
           setEvents(prevEvents => [...prevEvents, ...res.events]);
@@ -40,12 +38,11 @@ const EventsBoard = () => {
         .catch(() => toast.error('Something went wrong. Reload page or try again late!'))
         .finally(() => {
           setFetching(false);
-          setIsloading(false);
         });
     }
   }, [fetching, page]);
 
-  if (!events || isLoading) return <Loader />;
+  if (!events) return <Loader />;
 
   if (page !== 1 && events.length === totalEvents) toast.warning('All events have been loaded!');
 
