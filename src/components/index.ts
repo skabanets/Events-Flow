@@ -5,3 +5,4 @@ export * from './Icon/Icon.tsx';
 export * from './Logo/Logo.tsx';
 export * from './EventsCardsList/EventsCardsList.tsx';
 export * from './EventCard/EventCard.tsx';
+export * from './PageTitle/PageTitle.tsx';

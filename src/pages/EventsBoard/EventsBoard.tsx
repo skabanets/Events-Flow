@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getEvents } from '../../services/api';
 
-import { EventsCardsList, Loader } from '../../components';
+import { EventsCardsList, Loader, PageTitle } from '../../components';
 import { IEvent } from '../../types';
 import { toast } from 'react-toastify';
 
@@ -51,7 +51,7 @@ const EventsBoard = () => {
 
   return (
     <div className="container py-[20px]">
-      <h1 className="text-2xl">Events-board</h1>
+      <PageTitle title="Events-board" />
       {events.length !== 0 ? (
         <EventsCardsList events={events} />
       ) : (
