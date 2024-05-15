@@ -1,17 +1,23 @@
 import { useEffect, useState } from 'react';
 import { Loader, PageTitle } from '../../components';
-import { getEvent } from '../../services/api';
+import { getEvent, getPaparticipants } from '../../services/api';
 import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const Participants = () => {
   const { eventId } = useParams<{ eventId: string }>();
   const [eventTitle, setEventTitle] = useState<string>('');
 
   useEffect(() => {
-    eventId &&
+    if (eventId) {
       getEvent(eventId)
         .then(res => setEventTitle(res.title))
-        .catch();
+        .catch(() => toast.error('Something went wrong. Reload page or try again late!'));
+
+      getPaparticipants(eventId).catch(() =>
+        toast.error('Something went wrong. Reload page or try again late!')
+      );
+    }
   }, [eventId]);
 
   console.log(eventId);

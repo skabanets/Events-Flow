@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { Loader, PageTitle, RegistrationForm } from '../../components';
 import { useEffect, useState } from 'react';
 import { getEvent } from '../../services/api';
+import { toast } from 'react-toastify';
 
 const Registration = () => {
   const { eventId } = useParams<{ eventId: string }>();
@@ -11,7 +12,7 @@ const Registration = () => {
     eventId &&
       getEvent(eventId)
         .then(res => setEventTitle(res.title))
-        .catch();
+        .catch(() => toast.error('Something went wrong. Reload page or try again late!'));
   }, [eventId]);
 
   if (!eventId || eventTitle === '') return <Loader />;

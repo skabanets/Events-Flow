@@ -36,7 +36,6 @@ const EventsBoard = () => {
           setTotalEvens(res.totalCount);
         })
         .catch(() => {
-          events;
           toast.error('Something went wrong. Reload page or try again late!');
         })
         .finally(() => {

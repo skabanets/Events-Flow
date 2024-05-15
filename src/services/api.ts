@@ -25,8 +25,8 @@ export const addEvent = async (event: IEventWithoutId): Promise<IEvent> => {
   return data;
 };
 
-export const getPaparticipants = async (): Promise<IParticipant[]> => {
-  const { data } = await api.get('/participants');
+export const getPaparticipants = async (event: string): Promise<IParticipant[]> => {
+  const { data } = await api.get('/participants', event);
   return data;
 };
 export const addParticipant = async (participant: IParticipantRegister): Promise<IParticipant> => {
