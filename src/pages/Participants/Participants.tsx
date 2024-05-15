@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Loader, PageTitle, ParticipantsList } from '../../components';
+import { GoBackLink, Loader, PageTitle, ParticipantsList } from '../../components';
 import { getEvent, getPaparticipants } from '../../services/api';
 import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -41,7 +41,7 @@ const Participants = () => {
   return (
     <div className="page-wrapper">
       <PageTitle title={`"${eventTitle}" participants`} />
-
+      <GoBackLink />
       {participants.length !== 0 ? (
         <>
           <div className="card mt-[10px] bg-blue-100 shadow-md">

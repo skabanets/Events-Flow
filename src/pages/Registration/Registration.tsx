@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { Loader, PageTitle, RegistrationForm } from '../../components';
+import { GoBackLink, Loader, PageTitle, RegistrationForm } from '../../components';
 import { useEffect, useState } from 'react';
 import { getEvent } from '../../services/api';
 import { toast } from 'react-toastify';
@@ -20,6 +20,7 @@ const Registration = () => {
   return (
     <div className="page-wrapper">
       <PageTitle title={`"${eventTitle}" registration`} />
+      <GoBackLink />
       <div className="h-[85vh] w-full flex-center">
         <RegistrationForm id={eventId} />
       </div>
