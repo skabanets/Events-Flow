@@ -26,6 +26,9 @@
   font-stretch: normal;
   font-display: swap;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   @apply bg-gray-100 text-gray-800 font-nunito-regular min-h-screen;

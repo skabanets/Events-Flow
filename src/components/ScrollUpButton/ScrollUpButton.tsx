@@ -33,7 +33,7 @@ export const ScrollUpButton = () => {
       onClick={scrollUp}
       className={
         !isVisible
-          ? 'display-none'
+          ? 'hidden'
           : 'flex justify-center items-center fixed right-4 bottom-4 md:right-[40px] lg:bottom-[40px] lg:right-[30px] md:bottom-[30px] text-white rounded-full w-12 h-12 transition duration-250 shadow-md bg-blue-500 hover:bg-blue-600'
       }
     >
