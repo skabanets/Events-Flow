@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { IEvent, IEventWithoutId, IEventsRes, IParticipant, IParticipantWithoutId } from '../types';
+import { IEvent, IEventWithoutId, IEventsRes, IParticipant, IParticipantRegister } from '../types';
 
 export const api = axios.create({
   baseURL: 'https://events-flow-back.onrender.com/api',
@@ -29,7 +29,7 @@ export const getPaparticipants = async (): Promise<IParticipant[]> => {
   const { data } = await api.get('/participants');
   return data;
 };
-export const addParticipant = async (participant: IParticipantWithoutId): Promise<IParticipant> => {
+export const addParticipant = async (participant: IParticipantRegister): Promise<IParticipant> => {
   const { data } = await api.post('/participants', participant);
   return data;
 };

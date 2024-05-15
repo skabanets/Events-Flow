@@ -6,6 +6,7 @@ enum Source {
 
 export interface IParticipant {
   _id: string;
+  fullName: string;
   email: string;
   dateOfBirth: Date;
   dateOfRegistration: Date;
@@ -13,4 +14,11 @@ export interface IParticipant {
   eventId: string;
 }
 
-export interface IParticipantWithoutId extends Omit<Event, '_id'> {}
+export interface IParticipantRegister {
+  fullName: string;
+  email: string;
+  dateOfBirth: Date;
+  dateOfRegistration: Date;
+  eventSource: Source;
+  eventId: string;
+}

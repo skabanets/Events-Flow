@@ -1,6 +1,5 @@
 export interface IEvent {
   _id: string;
-  login: string;
   title: string;
   description: string;
   eventDate: Date;

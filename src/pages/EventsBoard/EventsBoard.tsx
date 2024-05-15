@@ -50,12 +50,12 @@ const EventsBoard = () => {
   if (page !== 1 && events.length === totalEvents) toast.warning('All events have been loaded!');
 
   return (
-    <div className="container py-[20px]">
+    <div className="page-wrapper">
       <PageTitle title="Events-board" />
       {events.length !== 0 ? (
         <EventsCardsList events={events} />
       ) : (
-        <div className="h-[80vh] w-[100wh] flex-center bg-slate-600">
+        <div className="h-[85vh] w-full flex-center bg-slate-600">
           <div className="card w-96 h-[200px] shadow-xl bg-red-300">
             <div className="card-body flex-center text-center">
               <h2 className="card-title">

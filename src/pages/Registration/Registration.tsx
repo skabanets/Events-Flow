@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { PageTitle } from '../../components';
+import { PageTitle, RegistrationForm } from '../../components';
 import { useEffect, useState } from 'react';
 import { getEvent } from '../../services/api';
 
@@ -14,9 +14,14 @@ const Registration = () => {
         .catch();
   }, [eventId]);
 
+  if (!eventId) return;
+
   return (
-    <div>
-      <PageTitle title={`Registration for the ${eventTitle} event`} />
+    <div className="page-wrapper">
+      <PageTitle title={`"${eventTitle}" registration`} />
+      <div className="h-[85vh] w-full flex-center">
+        <RegistrationForm id={eventId} />
+      </div>
     </div>
   );
 };

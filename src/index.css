@@ -58,3 +58,19 @@ p {
 .title {
   @apply font-nunito-semibold text-gray-900;
 }
+
+.page-wrapper {
+  @apply container py-[20px];
+}
+
+.card-style {
+  @apply card bg-base-100 shadow-xl;
+}
+
+.label {
+  @apply flex flex-col items-start gap-[6px] p-0;
+}
+
+.input-field {
+  @apply w-full px-[12px] py-[6px] border border-solid border-black rounded-[5px] focus:outline-none focus:border-blue-600;
+}
