@@ -1,14 +1,9 @@
 import axios from 'axios';
-import { IEvent, IEventWithoutId, IParticipant, IParticipantWithoutId } from '../types';
+import { IEvent, IEventWithoutId, IEventsRes, IParticipant, IParticipantWithoutId } from '../types';
 
 export const api = axios.create({
   baseURL: 'https://events-flow-back.onrender.com/api',
 });
-
-interface IEventsRes {
-  events: IEvent[];
-  totalCount: number;
-}
 
 export const getEvents = async (page: number): Promise<IEventsRes> => {
   const params = {

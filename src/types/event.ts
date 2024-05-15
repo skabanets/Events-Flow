@@ -9,3 +9,8 @@ export interface IEvent {
 }
 
 export interface IEventWithoutId extends Omit<Event, '_id'> {}
+
+export interface IEventsRes {
+  events: IEvent[];
+  totalCount: number;
+}
