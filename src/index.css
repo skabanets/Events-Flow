@@ -46,10 +46,6 @@ p {
   @apply text-gray-700;
 }
 
-.active {
-  @apply font-bold text-blue-600;
-}
-
 .flex-center {
   @apply flex justify-center items-center;
 }
@@ -88,4 +84,8 @@ p {
 
 .nav-link {
   @apply font-nunito-medium text-lg text-gray-600 hover:text-gray-800;
+}
+
+.active {
+  @apply font-bold text-blue-600;
 }
