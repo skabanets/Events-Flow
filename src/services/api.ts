@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
 import { IEvent, IEventWithoutId, IEventsRes, IParticipant, IParticipantRegister } from '../types';
 
 export const api = axios.create({
@@ -25,10 +25,11 @@ export const addEvent = async (event: IEventWithoutId): Promise<IEvent> => {
   return data;
 };
 
-export const getPaparticipants = async (event: string): Promise<IParticipant[]> => {
-  const { data } = await api.get('/participants', event);
+export const getPaparticipants = async (eventId: string): Promise<IParticipant[]> => {
+  const { data } = await api.get(`/participants?eventId=${eventId}`);
   return data;
 };
+
 export const addParticipant = async (participant: IParticipantRegister): Promise<IParticipant> => {
   const { data } = await api.post('/participants', participant);
   return data;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { getEvents } from '../../services/api';
 
-import { EventsCardsList, Loader, PageTitle } from '../../components';
+import { EventsList, Loader, PageTitle } from '../../components';
 import { IEvent } from '../../types';
 import { toast } from 'react-toastify';
 
@@ -33,7 +33,7 @@ const EventsBoard = () => {
         .then(res => {
           setEvents(prevEvents => [...prevEvents, ...res.events]);
           setPage(prevState => prevState + 1);
-          setTotalEvens(res.totalCount);
+          setTotalEvens(res.totalEvents);
         })
         .catch(() => {
           toast.error('Something went wrong. Reload page or try again late!');
@@ -52,7 +52,7 @@ const EventsBoard = () => {
     <div className="page-wrapper">
       <PageTitle title="Events-board" />
       {events.length !== 0 ? (
-        <EventsCardsList events={events} />
+        <EventsList events={events} />
       ) : (
         <div className="h-[85vh] w-full flex-center bg-slate-600">
           <div className="card w-96 h-[200px] shadow-xl bg-red-300">

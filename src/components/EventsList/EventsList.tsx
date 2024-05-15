@@ -1,11 +1,11 @@
-import { EventCard } from '../../components';
+import { EventCard } from '..';
 import { IEvent } from '../../types';
 
 interface EventsCardsListProps {
   events: IEvent[];
 }
 
-export const EventsCardsList: React.FC<EventsCardsListProps> = ({ events }) => {
+export const EventsList: React.FC<EventsCardsListProps> = ({ events }) => {
   return (
     <ul className="flex flex-wrap gap-[20px] my-[20px]">
       {events.length !== 0 &&

@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -20,9 +20,9 @@ const Home = () => {
               participate in a wide array of events. Join Events-Flow now and immerse yourself in a
               world of captivating experiences!
             </p>
-            <button className="btn button" onClick={handleClickButton}>
-              Get Started
-            </button>
+            <Link to={'/events-board'} className="navigate-link">
+              To Events-board
+            </Link>
           </div>
         </div>
       </div>

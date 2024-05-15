@@ -51,10 +51,6 @@ p {
   @apply flex justify-center items-center;
 }
 
-.button {
-  @apply bg-blue-500 text-white hover:bg-blue-600;
-}
-
 .title {
   @apply font-nunito-semibold text-gray-900;
 }
@@ -77,4 +73,12 @@ p {
 
 .field-error {
   @apply absolute mt-[2px] text-[12px] text-red-600;
+}
+
+.button {
+  @apply bg-blue-500 text-white hover:bg-blue-600;
+}
+
+.navigate-link {
+  @apply button rounded-[5px] px-[16px] py-[8px];
 }
