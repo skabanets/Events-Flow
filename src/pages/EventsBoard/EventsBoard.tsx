@@ -25,7 +25,7 @@ const EventsBoard = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
-  }, [events, fetching, totalEvents]);
+  }, [fetching, totalEvents]);
 
   useEffect(() => {
     if (fetching) {

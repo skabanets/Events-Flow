@@ -12,9 +12,9 @@ export const EventCard: React.FC<EventCardProps> = ({ eventInfo }) => {
   const cardLink = 'text-blue-500 hover:text-blue-600 hover:font-bold';
 
   return (
-    <div className="card w-[400px] bg-base-100 shadow-xl">
+    <div className="card  bg-base-100 shadow-xl w-full md:w-[342px] lg:w-[400px]">
       <div className="card-body p-[24px] font-nunito-medium">
-        <h2 className="card-title title">{title}</h2>
+        <h2 className="card-title title line-clamp-1">{title}</h2>
         <p className="line-clamp-2 text-container">{description}</p>
         <p className="text-sm">Organaizer: {organaizer}</p>
         <p className="text-sm">Date: {getFormattedDate(eventDate.toString())}</p>
