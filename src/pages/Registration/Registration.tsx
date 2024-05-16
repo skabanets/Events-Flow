@@ -22,7 +22,9 @@ const Registration = () => {
   return (
     <div className="page-wrapper">
       <PageTitle title={`"${eventTitle}" registration`} />
-      <GoBackLink />
+      <div className="mt-[10px]">
+        <GoBackLink />
+      </div>
       <div className="h-[85vh] w-full flex-center">
         <RegistrationForm id={eventId} />
       </div>
