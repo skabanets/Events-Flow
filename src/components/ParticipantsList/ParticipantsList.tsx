@@ -1,5 +1,4 @@
 import { ParticipantCard } from '../../components';
-
 import { IParticipant } from '../../types';
 
 interface IParticipantsListProps {

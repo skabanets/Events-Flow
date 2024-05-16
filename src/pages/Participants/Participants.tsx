@@ -3,9 +3,14 @@ import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { BarChart } from '@mui/x-charts';
 
-import { GoBackLink, Loader, PageTitle, ParticipantsList } from '../../components';
+import { Filter, GoBackLink, Loader, PageTitle, ParticipantsList } from '../../components';
 
-import { getCountParticipantsByDate, getLastWeekDates, getWeekdays } from '../../helpers';
+import {
+  getCountParticipantsByDate,
+  getFilteredParticipants,
+  getLastWeekDates,
+  getWeekdays,
+} from '../../helpers';
 import { getEvent, getPaparticipants } from '../../services/api';
 import { IParticipant } from '../../types';
 
@@ -15,6 +20,7 @@ const Participants = () => {
   const [participants, setParticipants] = useState<IParticipant[]>([]);
   const [dateArr, setDateArr] = useState<string[]>([]);
   const [participantsByDate, setParticipantsByDate] = useState<number[]>([]);
+  const [filter, setFilter] = useState<string>('');
 
   useEffect(() => {
     if (eventId) {
@@ -37,12 +43,21 @@ const Participants = () => {
     }
   }, [participants]);
 
+  const handleChangeFilter = (data: string): void => {
+    setFilter(data);
+  };
+
   if (!eventId || eventTitle === '') return <Loader />;
+
+  const filteredParticipantsArr = getFilteredParticipants(participants, filter);
 
   return (
     <div className="page-wrapper">
       <PageTitle title={`"${eventTitle}" participants`} />
-      <GoBackLink />
+      <div className="flex flex-col md:flex-row gap-3 justify-start md:justify-between md:items-center mt-[10px] mb-[15px]">
+        <GoBackLink />
+        {participants.length !== 0 && <Filter handleChangeFilter={handleChangeFilter} />}
+      </div>
       {participants.length !== 0 ? (
         <>
           <div className="card mt-[10px] bg-blue-100 shadow-md">
@@ -55,7 +70,10 @@ const Participants = () => {
               className="w-full"
             />
           </div>
-          <ParticipantsList participants={participants} />
+          <ParticipantsList participants={filteredParticipantsArr} />
+          {participants.length !== 0 && filteredParticipantsArr.length == 0 && (
+            <h2 className="text-xl">No participants found matching the filter criteria!</h2>
+          )}
         </>
       ) : (
         <div className="h-[85vh] w-full flex-center">

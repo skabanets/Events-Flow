@@ -4,12 +4,12 @@ export const getLastWeekDates = (): string[] => {
 
   for (let i = 0; i < 7; i++) {
     const previousDate = new Date(currentDate);
-    previousDate.setDate(currentDate.getDate() - (5 - i));
+    previousDate.setDate(currentDate.getDate() - (6 - i));
 
     const formattedDate = previousDate.toISOString().slice(0, 10);
 
     dateArray.push(formattedDate);
   }
-  console.log(dateArray, currentDate);
+
   return dateArray;
 };
