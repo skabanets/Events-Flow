@@ -9,6 +9,5 @@ export * from './RegistrationForm/RegistrationForm.tsx';
 export * from './ParticipantsList/ParticipantsList.tsx';
 export * from './ParticipantCard/ParticipantCard.tsx';
 export * from './Card/Card.tsx';
-export * from './GoBackLink/GoBackLink.tsx';
 export * from './ScrollUpButton/ScrollUpButton.tsx';
 export * from './Filter/Filter.tsx';

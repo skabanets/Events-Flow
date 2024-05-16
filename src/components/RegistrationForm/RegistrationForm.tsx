@@ -89,7 +89,7 @@ export const RegistrationForm = ({ id }: IRegistrationFormPprops) => {
         <p className="field-error">{errors['dateOfBirth']?.message}</p>
       </div>
       <div>
-        <h2 className="mb-[10px]">Where did you here about this event?</h2>
+        <h2 className="mb-3">Where did you here about this event?</h2>
         <div className="flex flex-col gap-[10px] md:flex-row md:gap-6">
           <label className="flex gap-1">
             <input type="radio" value="Social media" {...register('eventSource')} />

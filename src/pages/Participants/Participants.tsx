@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { BarChart } from '@mui/x-charts';
+import { RxDoubleArrowRight } from 'react-icons/rx';
 
-import { Filter, GoBackLink, Loader, PageTitle, ParticipantsList } from '../../components';
+import { Filter, Loader, PageTitle, ParticipantsList } from '../../components';
 
 import {
   getCountParticipantsByDate,
@@ -57,8 +58,16 @@ const Participants = () => {
         <PageTitle title={`"${eventTitle}" participants`} />
         {participants.length !== 0 && <p>Total participants: {participants.length}</p>}
       </div>
-      <div className="flex flex-col md:flex-row gap-3 justify-start md:justify-between md:items-center mt-[10px] mb-[15px]">
-        <GoBackLink />
+      <div className="flex flex-col items-baseline md:flex-row gap-3 justify-start md:justify-between md:items-center mt-[10px] mb-[15px]">
+        <div className="flex gap-[2px]">
+          <Link to="/events-board" className="text-blue-500 hover:text-blue-600 flex gap-1 ml-3">
+            Events-board
+            <RxDoubleArrowRight className="fill-blue-500 size-[18px]" />
+          </Link>
+          <Link to={`/registration/${eventId}`} className="text-blue-500 hover:text-blue-600">
+            Register
+          </Link>
+        </div>
         {participants.length !== 0 && <Filter handleChangeFilter={handleChangeFilter} />}
       </div>
       {participants.length !== 0 ? (
