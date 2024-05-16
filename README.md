@@ -1,4 +1,4 @@
-# Events-Feed - application for events registration
+# Events-Flow - application for events registration
 
 ## Introduction
 
@@ -53,4 +53,4 @@ innovative features ensure that every event is a success.
 
 ## Demo
 
-This project is deployed on Vercel. Check it out: [**Events-Feed**](events-flow.vercel.app)
+This project is deployed on Vercel. Check it out: [**Events-Feed**](https://events-flow.vercel.app/)
