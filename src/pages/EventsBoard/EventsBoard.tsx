@@ -51,7 +51,10 @@ const EventsBoard = () => {
 
   return (
     <div className="page-wrapper">
-      <PageTitle title="Events-board" />
+      <div className="flex justify-between items-center">
+        <PageTitle title="Events-board" />
+        {events.length !== 0 && <p>Total events: {totalEvents}</p>}
+      </div>
       {events.length !== 0 ? (
         <EventsList events={events} />
       ) : (

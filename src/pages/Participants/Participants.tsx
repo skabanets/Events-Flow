@@ -53,7 +53,10 @@ const Participants = () => {
 
   return (
     <div className="page-wrapper">
-      <PageTitle title={`"${eventTitle}" participants`} />
+      <div className="flex justify-between items-center">
+        <PageTitle title={`"${eventTitle}" participants`} />
+        {participants.length !== 0 && <p>Total participants: {participants.length}</p>}
+      </div>
       <div className="flex flex-col md:flex-row gap-3 justify-start md:justify-between md:items-center mt-[10px] mb-[15px]">
         <GoBackLink />
         {participants.length !== 0 && <Filter handleChangeFilter={handleChangeFilter} />}

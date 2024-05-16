@@ -47,7 +47,10 @@ export const RegistrationForm = ({ id }: IRegistrationFormPprops) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="card-style p-5 font-nunito-regular gap-5">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="card-style p-6 md:p-10 font-nunito-regular gap-5"
+    >
       <h1 className="title text-2xl">Event registration</h1>
       <div className="relative">
         <label className="label">
