@@ -25,7 +25,7 @@ export const Filter = ({ handleChangeFilter }: IFilterProps) => {
           onChange={handleChangeInput}
           value={filterValue}
           type="text"
-          className="input-field text-sm "
+          className="input-field"
           placeholder="search participants by full name, email"
         />
         <FaRectangleXmark

@@ -5,13 +5,13 @@ export const api = axios.create({
   baseURL: 'https://events-flow-back.onrender.com/api',
 });
 
-export const getEvents = async (page: number): Promise<IEventsRes> => {
+export const getEvents = async (page: number, sortData: string): Promise<IEventsRes> => {
   const params = {
     page,
     limit: 12,
   };
 
-  const { data } = await api.get('/events', { params });
+  const { data } = await api.get(`/events?${sortData}`, { params });
   return data;
 };
 
