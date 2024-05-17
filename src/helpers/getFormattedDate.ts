@@ -1,8 +1,9 @@
 export const getFormattedDate = (dateString: string): string => {
   const date = new Date(dateString);
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
 
-  return `${year}-${month}-${day}`;
+  const day = date.getDate();
+  const monthOptions: Intl.DateTimeFormatOptions = { month: 'long' };
+  const month = date.toLocaleDateString('en-US', monthOptions);
+
+  return `${day} ${month}`;
 };
