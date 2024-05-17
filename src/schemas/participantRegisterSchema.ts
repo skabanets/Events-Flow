@@ -1,4 +1,5 @@
 import * as yup from 'yup';
+import { getMaxBirthDate, getMinBirthDate } from '../helpers';
 
 export const participantRegisterSchema = yup.object().shape({
   fullName: yup
@@ -13,7 +14,9 @@ export const participantRegisterSchema = yup.object().shape({
   dateOfBirth: yup
     .date()
     .required('Date of birth is required')
-    .typeError('Date of birth must be a valid date'),
+    .typeError('Date of birth must be a valid date')
+    .max(getMaxBirthDate(), 'Date of birth cannot be in the future')
+    .min(getMinBirthDate(), 'Date of birth cannot be more than 100 years ago'),
   eventSource: yup
     .string()
     .oneOf(['Social media', 'Friends', 'Found myself'], 'Invalid event source')

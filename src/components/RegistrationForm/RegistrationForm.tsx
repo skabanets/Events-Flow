@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 import { IParticipantRegister } from '../../types';
 import { addParticipant } from '../../services/api';
 import { participantRegisterSchema } from '../../schemas/participantRegisterSchema';
+import { getMaxBirthDate } from '../../helpers';
 
 interface IRegistrationFormPprops {
   id: string;
@@ -83,6 +84,7 @@ export const RegistrationForm = ({ id }: IRegistrationFormPprops) => {
             className="input-field"
             type="date"
             defaultValue="yyyy-mm-dd"
+            max={getMaxBirthDate()}
             {...register('dateOfBirth')}
           />
         </label>
