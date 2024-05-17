@@ -46,8 +46,6 @@ const EventsBoard = () => {
     }
   }, [fetching, page, sortData]);
 
-  console.log(sortData);
-
   const handleChangeSort = (data: string): void => {
     setSortData(data);
     setEvents([]);
