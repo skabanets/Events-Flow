@@ -65,7 +65,7 @@ const EventsBoard = () => {
         <PageTitle title="Events-board" />
         {events.length !== 0 && <p>Total events: {totalEvents}</p>}
       </div>
-      <SortField handleChangeSort={handleChangeSort} />
+      <SortField handleChangeSort={handleChangeSort} sortData={sortData} />
       {events.length !== 0 ? (
         <EventsList events={events} />
       ) : (

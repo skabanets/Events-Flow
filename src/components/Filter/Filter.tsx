@@ -9,8 +9,9 @@ export const Filter = ({ handleChangeFilter }: IFilterProps) => {
   const [filterValue, serFilterValue] = useState<string>('');
 
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
-    handleChangeFilter(e.target.value);
-    serFilterValue(e.target.value);
+    const { value } = e.target;
+    handleChangeFilter(value);
+    serFilterValue(value);
   };
 
   const handleClearFilter = () => {
