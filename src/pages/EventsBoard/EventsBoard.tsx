@@ -5,6 +5,7 @@ import { EventsList, Loader, PageTitle, SortField } from '../../components';
 
 import { getEvents } from '../../services/api';
 import { IEvent } from '../../types';
+import { sortOptions } from '../../constants/sortOptions';
 
 const EventsBoard = () => {
   const [events, setEvents] = useState<IEvent[]>([]);
@@ -63,7 +64,7 @@ const EventsBoard = () => {
         <PageTitle title="Events-board" />
         {events.length !== 0 && <p>Total events: {totalEvents}</p>}
       </div>
-      <SortField handleChangeSort={handleChangeSort} sortData={sortData} />
+      <SortField handleChangeSort={handleChangeSort} sortData={sortData} options={sortOptions} />
       {events.length !== 0 ? (
         <EventsList events={events} />
       ) : (

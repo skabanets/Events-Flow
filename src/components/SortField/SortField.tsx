@@ -1,11 +1,14 @@
 import { useState } from 'react';
 
+import type { ISortOption } from '../../types';
+
 interface ISortField {
   handleChangeSort: (value: string) => void;
   sortData: string;
+  options: ISortOption[];
 }
 
-export const SortField = ({ handleChangeSort, sortData }: ISortField) => {
+export const SortField = ({ handleChangeSort, sortData, options }: ISortField) => {
   const [selectedOption, setSelectedOption] = useState<string>(sortData);
 
   const handleChangeOption = (e: React.ChangeEvent<HTMLSelectElement>): void => {
@@ -23,13 +26,11 @@ export const SortField = ({ handleChangeSort, sortData }: ISortField) => {
           value={selectedOption}
           onChange={handleChangeOption}
         >
-          <option value="">Without sorting</option>
-          <option value="sortByTitle=true">Title A-Z</option>
-          <option value="sortByTitle=false">Title Z-A</option>
-          <option value="sortByEventDate=true">Ascending Date</option>
-          <option value="sortByEventDate=false">Descending Date </option>
-          <option value="sortByOrganaizer=true">Organaizer A-Z</option>
-          <option value="sortByOrganaizer=false">Organaizer Z-A</option>
+          {options.map(option => (
+            <option key={option.id} value={option.value}>
+              {option.text}
+            </option>
+          ))}
         </select>
       </label>
     </div>
