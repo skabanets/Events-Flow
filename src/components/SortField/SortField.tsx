@@ -18,7 +18,11 @@ export const SortField = ({ handleChangeSort, sortData }: ISortField) => {
     <div className="w-[200px] mt-5">
       <label className="label">
         Sort by:
-        <select className="input-field" value={selectedOption} onChange={handleChangeOption}>
+        <select
+          className="select select-bordered w-full max-w-xs input-field"
+          value={selectedOption}
+          onChange={handleChangeOption}
+        >
           <option value="">Without sorting</option>
           <option value="sortByTitle=true">Title A-Z</option>
           <option value="sortByTitle=false">Title Z-A</option>
