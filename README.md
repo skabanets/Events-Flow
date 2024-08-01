@@ -54,5 +54,6 @@ innovative features ensure that every event is a success.
 ## Demo
 
 This project is deployed on Vercel. Check it out: [**Events-Flow**](https://events-flow.vercel.app/)
+
 Here you can see back-end part of website:
 [**Events-Flow (Backend)**](https://github.com/skabanets/Events-Flow-Back)
