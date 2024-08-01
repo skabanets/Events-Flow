@@ -13,12 +13,12 @@ import {
   getWeekdays,
 } from '../../helpers';
 import { getEvent, getPaparticipants } from '../../services/api';
-import { IParticipant } from '../../types';
+import type { Participant } from '../../types';
 
 const Participants = () => {
   const { eventId } = useParams<{ eventId: string }>();
   const [eventTitle, setEventTitle] = useState<string>('');
-  const [participants, setParticipants] = useState<IParticipant[]>([]);
+  const [participants, setParticipants] = useState<Participant[]>([]);
   const [dateArr, setDateArr] = useState<string[]>([]);
   const [participantsByDate, setParticipantsByDate] = useState<number[]>([]);
   const [filter, setFilter] = useState<string>('');

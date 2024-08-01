@@ -4,11 +4,11 @@ import { toast } from 'react-toastify';
 import { EventsList, Loader, PageTitle, SortField } from '../../components';
 
 import { getEvents } from '../../services/api';
-import { IEvent } from '../../types';
 import { sortOptions } from '../../constants/sortOptions';
+import type { Event } from '../../types';
 
 const EventsBoard = () => {
-  const [events, setEvents] = useState<IEvent[]>([]);
+  const [events, setEvents] = useState<Event[]>([]);
   const [page, setPage] = useState<number>(1);
   const [fetching, setFetching] = useState<boolean>(true);
   const [totalEvents, setTotalEvens] = useState<number>(0);

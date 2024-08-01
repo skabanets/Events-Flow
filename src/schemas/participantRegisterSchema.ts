@@ -1,4 +1,5 @@
 import * as yup from 'yup';
+
 import { getMaxBirthDate, getMinBirthDate } from '../helpers';
 
 export const participantRegisterSchema = yup.object().shape({

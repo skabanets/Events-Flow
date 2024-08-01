@@ -1,8 +1,8 @@
-import { IParticipant } from '../types';
+import type { Participant } from '../types';
 
 export const getCountParticipantsByDate = (
   dates: string[],
-  participants: IParticipant[]
+  participants: Participant[]
 ): number[] => {
   const participantsCount = [];
 

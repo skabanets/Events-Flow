@@ -1,26 +1,26 @@
-import { useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { toast } from 'react-toastify';
 
-import { IParticipantRegister } from '../../types';
 import { addParticipant } from '../../services/api';
 import { participantRegisterSchema } from '../../schemas/participantRegisterSchema';
 import { getMaxBirthDate } from '../../helpers';
+import type { ParticipantRegister } from '../../types';
 
-interface IRegistrationFormPprops {
+interface RegistrationFormPprops {
   id: string;
 }
 
-export const RegistrationForm = ({ id }: IRegistrationFormPprops) => {
+export const RegistrationForm: FC<RegistrationFormPprops> = ({ id }) => {
   const {
     register,
     handleSubmit,
     reset,
     setValue,
     formState: { errors },
-  } = useForm<IParticipantRegister>({
+  } = useForm<ParticipantRegister>({
     mode: 'onSubmit',
     resolver: yupResolver(participantRegisterSchema),
   });
@@ -38,7 +38,7 @@ export const RegistrationForm = ({ id }: IRegistrationFormPprops) => {
     }, 1000);
   };
 
-  const onSubmit = (data: IParticipantRegister): void => {
+  const onSubmit = (data: ParticipantRegister) => {
     addParticipant(data)
       .then(() => {
         toast.success('You have successfully registered for the event!');

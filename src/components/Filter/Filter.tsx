@@ -1,11 +1,11 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { FaRectangleXmark } from 'react-icons/fa6';
 
-interface IFilterProps {
+interface FilterProps {
   handleChangeFilter: (value: string) => void;
 }
 
-export const Filter = ({ handleChangeFilter }: IFilterProps) => {
+export const Filter: FC<FilterProps> = ({ handleChangeFilter }) => {
   const [filterValue, serFilterValue] = useState<string>('');
 
   const handleChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {

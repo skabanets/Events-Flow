@@ -1,14 +1,14 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 
-import type { ISortOption } from '../../types';
+import type { SortOption } from '../../types';
 
-interface ISortField {
+interface SortField {
   handleChangeSort: (value: string) => void;
   sortData: string;
-  options: ISortOption[];
+  options: SortOption[];
 }
 
-export const SortField = ({ handleChangeSort, sortData, options }: ISortField) => {
+export const SortField: FC<SortField> = ({ handleChangeSort, sortData, options }) => {
   const [selectedOption, setSelectedOption] = useState<string>(sortData);
 
   const handleChangeOption = (e: React.ChangeEvent<HTMLSelectElement>): void => {

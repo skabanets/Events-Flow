@@ -1,6 +1,6 @@
-import { IParticipant } from '../types';
+import type { Participant } from '../types';
 
-export const getFilteredParticipants = (array: IParticipant[], filter: string): IParticipant[] => {
+export const getFilteredParticipants = (array: Participant[], filter: string): Participant[] => {
   if (filter === '') return array;
 
   return array.filter(participant => {

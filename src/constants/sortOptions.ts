@@ -1,6 +1,6 @@
-import type { ISortOption } from '../types';
+import type { SortOption } from '../types';
 
-export const sortOptions: ISortOption[] = [
+export const sortOptions: SortOption[] = [
   { id: '1', value: '', text: 'Without sorting' },
   { id: '2', value: 'sortByTitle=true', text: 'Title A-Z' },
   { id: '3', value: 'sortByTitle=false', text: 'Title Z-A' },

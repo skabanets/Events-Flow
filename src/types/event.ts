@@ -1,4 +1,4 @@
-export interface IEvent {
+export interface Event {
   _id: string;
   title: string;
   description: string;
@@ -7,9 +7,9 @@ export interface IEvent {
   participants: string[];
 }
 
-export interface IEventWithoutId extends Omit<Event, '_id'> {}
+export interface EventWithoutId extends Omit<Event, '_id'> {}
 
-export interface IEventsRes {
-  events: IEvent[];
+export interface EventsRes {
+  events: Event[];
   totalEvents: number;
 }
